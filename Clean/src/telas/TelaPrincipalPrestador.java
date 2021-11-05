@@ -37,6 +37,7 @@ public class TelaPrincipalPrestador extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPrincipalPrestador() {
+		
 		TelaInfo inf = new TelaInfo();
 		TelaAlterarPrestador tap = new TelaAlterarPrestador();
 		setTitle("Perfil");
@@ -57,6 +58,11 @@ public class TelaPrincipalPrestador extends JFrame {
 		contentPane.add(btnOffline);
 		
 		JButton btnServios = new JButton("Servi\u00E7os");
+		btnServios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnServios.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnServios.setBounds(150, 22, 89, 23);
 		contentPane.add(btnServios);

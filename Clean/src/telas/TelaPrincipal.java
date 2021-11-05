@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaPrincipal extends JFrame {
 
@@ -34,6 +36,9 @@ public class TelaPrincipal extends JFrame {
 	 */
 	public TelaPrincipal() {
 		TelaInfo inf = new TelaInfo();
+		TelaColetaDados col = new TelaColetaDados();
+		TelaHistorico his = new TelaHistorico();
+		TelaAgenda age = new TelaAgenda();
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -109,21 +114,42 @@ public class TelaPrincipal extends JFrame {
 		contentPane.add(tpSobre);
 		
 		JButton btnAgendar = new JButton("Agendar");
+		btnAgendar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				age.setVisible(true);
+			}
+		});
 		btnAgendar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnAgendar.setBounds(335, 11, 89, 23);
 		contentPane.add(btnAgendar);
 		
 		JButton btnHistorico = new JButton("Historico");
+		btnHistorico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				his.setVisible(true);
+			}
+			
+		});
 		btnHistorico.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnHistorico.setBounds(335, 39, 89, 23);
 		contentPane.add(btnHistorico);
 		
 		JButton btnServios = new JButton("Servi\u00E7os");
+		btnServios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				col.setVisible(true);
+			}
+		});
 		btnServios.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnServios.setBounds(161, 22, 89, 23);
 		contentPane.add(btnServios);
 		
 		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnSair.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnSair.setBounds(335, 227, 89, 23);
 		contentPane.add(btnSair);

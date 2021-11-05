@@ -18,6 +18,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JRadioButton;
 
 public class TelaCadastro extends JFrame {
 
@@ -25,9 +26,11 @@ public class TelaCadastro extends JFrame {
 	private JTextField tfNome;
 	private JTextField tfEmail;
 	private JTextField tfTelefone;
-	private JTextField tfSexo;
 	private JPasswordField pfSenhacon;
 	private JPasswordField pfSenha;
+	private JTextField tfEndereco;
+	private JTextField tfComplemento;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -39,7 +42,7 @@ public class TelaCadastro extends JFrame {
 	public TelaCadastro() {
 		TelaInfo inf = new TelaInfo();
 		setTitle("Cadastro");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -62,17 +65,17 @@ public class TelaCadastro extends JFrame {
 		
 		JLabel lblSexo = new JLabel("Sexo");
 		lblSexo.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblSexo.setBounds(28, 120, 31, 17);
+		lblSexo.setBounds(28, 200, 31, 17);
 		contentPane.add(lblSexo);
 		
 		JLabel lblSenha = new JLabel("Senha");
 		lblSenha.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblSenha.setBounds(28, 148, 46, 14);
+		lblSenha.setBounds(28, 228, 46, 14);
 		contentPane.add(lblSenha);
 		
 		JLabel lblConfirmarSenha = new JLabel("Confirmar Senha");
 		lblConfirmarSenha.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblConfirmarSenha.setBounds(28, 173, 107, 17);
+		lblConfirmarSenha.setBounds(28, 253, 107, 17);
 		contentPane.add(lblConfirmarSenha);
 		
 		tfNome = new JTextField();
@@ -90,14 +93,9 @@ public class TelaCadastro extends JFrame {
 		tfTelefone.setBounds(89, 91, 246, 20);
 		contentPane.add(tfTelefone);
 		
-		tfSexo = new JTextField();
-		tfSexo.setColumns(10);
-		tfSexo.setBounds(69, 119, 266, 20);
-		contentPane.add(tfSexo);
-		
 		JButton btnEnviar = new JButton("Enviar");
 		btnEnviar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnEnviar.setBounds(28, 227, 89, 23);
+		btnEnviar.setBounds(28, 327, 89, 23);
 		contentPane.add(btnEnviar);
 		
 		JButton btnSair = new JButton("Sair");
@@ -107,15 +105,15 @@ public class TelaCadastro extends JFrame {
 				dispose();
 			}
 		});
-		btnSair.setBounds(319, 227, 89, 23);
+		btnSair.setBounds(319, 327, 89, 23);
 		contentPane.add(btnSair);
 		
 		pfSenhacon = new JPasswordField();
-		pfSenhacon.setBounds(145, 172, 229, 20);
+		pfSenhacon.setBounds(145, 252, 229, 20);
 		contentPane.add(pfSenhacon);
 		
 		pfSenha = new JPasswordField();
-		pfSenha.setBounds(84, 146, 229, 20);
+		pfSenha.setBounds(84, 226, 229, 20);
 		contentPane.add(pfSenha);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -124,13 +122,14 @@ public class TelaCadastro extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 					tfNome.setText("");
 					tfEmail.setText("");
-					tfSexo.setText("");
+					tfComplemento.setText("");
+					tfEndereco.setText("");
 					tfTelefone.setText("");
 					pfSenha.setText("");
 					pfSenhacon.setText("");
 			}
 		});
-		btnLimpar.setBounds(170, 227, 89, 23);
+		btnLimpar.setBounds(170, 327, 89, 23);
 		contentPane.add(btnLimpar);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -158,6 +157,47 @@ public class TelaCadastro extends JFrame {
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Ajuda");
 		mntmNewMenuItem_2.setFont(new Font("Arial", Font.PLAIN, 14));
 		mnNewMenu.add(mntmNewMenuItem_2);
+		
+		JLabel lblEndereo = new JLabel("Endere\u00E7o");
+		lblEndereo.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblEndereo.setBounds(28, 120, 61, 17);
+		contentPane.add(lblEndereo);
+		
+		tfEndereco = new JTextField();
+		tfEndereco.setColumns(10);
+		tfEndereco.setBounds(99, 119, 266, 20);
+		contentPane.add(tfEndereco);
+		
+		JLabel lblComplemento = new JLabel("Complemento");
+		lblComplemento.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblComplemento.setBounds(28, 148, 89, 17);
+		contentPane.add(lblComplemento);
+		
+		tfComplemento = new JTextField();
+		tfComplemento.setColumns(10);
+		tfComplemento.setBounds(127, 143, 266, 20);
+		contentPane.add(tfComplemento);
+		
+		JLabel lblDataDeNascimento = new JLabel("Data de nascimento");
+		lblDataDeNascimento.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblDataDeNascimento.setBounds(28, 176, 145, 17);
+		contentPane.add(lblDataDeNascimento);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(170, 174, 155, 20);
+		contentPane.add(textField);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("M");
+		rdbtnNewRadioButton.setBounds(65, 200, 46, 23);
+		contentPane.add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("F");
+		rdbtnNewRadioButton_1.setBounds(139, 200, 41, 23);
+		contentPane.add(rdbtnNewRadioButton_1);
+		
+		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton("Outros");
+		rdbtnNewRadioButton_1_1.setBounds(200, 200, 74, 23);
+		contentPane.add(rdbtnNewRadioButton_1_1);
 	}
-
 }

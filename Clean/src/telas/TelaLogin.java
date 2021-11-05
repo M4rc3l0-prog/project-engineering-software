@@ -46,7 +46,7 @@ public class TelaLogin extends JFrame {
 	 */
 	public TelaLogin() {
 		TelaInfo inf = new TelaInfo();
-		TelaCadastro cad = new TelaCadastro();
+		TelaCadastroEscolha cade = new TelaCadastroEscolha();
 		TelaPrincipal pri = new TelaPrincipal();
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,7 +80,7 @@ public class TelaLogin extends JFrame {
 		btCadastrar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cad.setVisible(true);
+				cade.setVisible(true);
 			}
 		});
 		btCadastrar.setBounds(150, 188, 101, 23);
