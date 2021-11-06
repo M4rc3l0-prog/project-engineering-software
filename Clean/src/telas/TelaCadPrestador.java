@@ -30,6 +30,8 @@ public class TelaCadPrestador extends JFrame {
 	private JTextField tfIdade;
 	private JPasswordField pfSenha;
 	private JPasswordField pfSenhacon;
+	private JTextField tfEndereco;
+	private JTextField tfComplemento;
 
 	/**
 	 * Launch the application.
@@ -65,27 +67,27 @@ public class TelaCadPrestador extends JFrame {
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Sexo");
 		lblNewLabel_1_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_1_1_1.setBounds(53, 116, 36, 17);
+		lblNewLabel_1_1_1.setBounds(53, 197, 36, 17);
 		contentPane.add(lblNewLabel_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Senha");
 		lblNewLabel_1_1_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_1_1_1_1.setBounds(53, 144, 41, 17);
+		lblNewLabel_1_1_1_1.setBounds(53, 225, 41, 17);
 		contentPane.add(lblNewLabel_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Confirmar Senha");
 		lblNewLabel_1_1_1_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_1_1_1_1_1.setBounds(53, 172, 107, 17);
+		lblNewLabel_1_1_1_1_1.setBounds(53, 253, 107, 17);
 		contentPane.add(lblNewLabel_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_2 = new JLabel("Raio De Servi\u00E7o");
 		lblNewLabel_1_1_1_1_2.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_1_1_1_1_2.setBounds(53, 200, 102, 17);
+		lblNewLabel_1_1_1_1_2.setBounds(53, 281, 102, 17);
 		contentPane.add(lblNewLabel_1_1_1_1_2);
 		
-		JLabel lblNewLabel_1_1_1_1_2_1_1 = new JLabel("Idade");
+		JLabel lblNewLabel_1_1_1_1_2_1_1 = new JLabel("Data de nascimento");
 		lblNewLabel_1_1_1_1_2_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_1_1_1_1_2_1_1.setBounds(53, 228, 102, 17);
+		lblNewLabel_1_1_1_1_2_1_1.setBounds(53, 169, 136, 17);
 		contentPane.add(lblNewLabel_1_1_1_1_2_1_1);
 		
 		JButton btnEnviar = new JButton("Enviar");
@@ -120,20 +122,20 @@ public class TelaCadPrestador extends JFrame {
 		
 		tfRaio = new JTextField();
 		tfRaio.setColumns(10);
-		tfRaio.setBounds(168, 200, 234, 20);
+		tfRaio.setBounds(168, 281, 234, 20);
 		contentPane.add(tfRaio);
 		
 		tfIdade = new JTextField();
 		tfIdade.setColumns(10);
-		tfIdade.setBounds(102, 229, 234, 20);
+		tfIdade.setBounds(199, 168, 163, 20);
 		contentPane.add(tfIdade);
 		
 		pfSenha = new JPasswordField();
-		pfSenha.setBounds(107, 144, 229, 20);
+		pfSenha.setBounds(107, 225, 229, 20);
 		contentPane.add(pfSenha);
 		
 		pfSenhacon = new JPasswordField();
-		pfSenhacon.setBounds(173, 172, 229, 20);
+		pfSenhacon.setBounds(173, 253, 229, 20);
 		contentPane.add(pfSenhacon);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -152,17 +154,17 @@ public class TelaCadPrestador extends JFrame {
 		btnLimpar.setBounds(184, 350, 89, 23);
 		contentPane.add(btnLimpar);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("M");
-		rdbtnNewRadioButton.setBounds(99, 116, 46, 23);
-		contentPane.add(rdbtnNewRadioButton);
+		JRadioButton rdMasculino = new JRadioButton("M");
+		rdMasculino.setBounds(99, 193, 46, 23);
+		contentPane.add(rdMasculino);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("F");
-		rdbtnNewRadioButton_1.setBounds(173, 116, 41, 23);
-		contentPane.add(rdbtnNewRadioButton_1);
+		JRadioButton rdFeminino = new JRadioButton("F");
+		rdFeminino.setBounds(173, 193, 41, 23);
+		contentPane.add(rdFeminino);
 		
-		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton("Outros");
-		rdbtnNewRadioButton_1_1.setBounds(234, 116, 59, 23);
-		contentPane.add(rdbtnNewRadioButton_1_1);
+		JRadioButton rdOutros = new JRadioButton("Outros");
+		rdOutros.setBounds(234, 193, 74, 23);
+		contentPane.add(rdOutros);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 56, 22);
@@ -189,5 +191,25 @@ public class TelaCadPrestador extends JFrame {
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Ajuda");
 		mntmNewMenuItem_2.setFont(new Font("Arial", Font.PLAIN, 14));
 		mnNewMenu.add(mntmNewMenuItem_2);
+		
+		JLabel lblNewLabel_1_1_2 = new JLabel("Endere\u00E7o");
+		lblNewLabel_1_1_2.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_1_1_2.setBounds(53, 116, 70, 17);
+		contentPane.add(lblNewLabel_1_1_2);
+		
+		JLabel lblNewLabel_1_1_2_1 = new JLabel("Complemento");
+		lblNewLabel_1_1_2_1.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_1_1_2_1.setBounds(53, 140, 102, 17);
+		contentPane.add(lblNewLabel_1_1_2_1);
+		
+		tfEndereco = new JTextField();
+		tfEndereco.setColumns(10);
+		tfEndereco.setBounds(122, 115, 234, 20);
+		contentPane.add(tfEndereco);
+		
+		tfComplemento = new JTextField();
+		tfComplemento.setColumns(10);
+		tfComplemento.setBounds(147, 139, 234, 20);
+		contentPane.add(tfComplemento);
 	}
 }
