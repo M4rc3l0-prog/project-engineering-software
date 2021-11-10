@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
 
 public class TelaHistorico extends JFrame {
 
@@ -33,26 +34,45 @@ public class TelaHistorico extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaHistorico() {
+		// Sintaxe
 		TelaInfo inf = new TelaInfo();
+		// Sintaxe
+		
+		setForeground(Color.BLACK);
+		setBackground(Color.WHITE);
+		
 		setBounds(100, 100, 450, 389);
 		contentPane = new JPanel();
+		contentPane.setForeground(Color.BLACK);
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Historico");
+		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setBackground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel.setBounds(26, 33, 67, 17);
 		contentPane.add(lblNewLabel);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setForeground(Color.BLACK);
+		menuBar.setBackground(Color.WHITE);
+		menuBar.setBorderPainted(false);
 		menuBar.setBounds(0, 0, 53, 22);
 		contentPane.add(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Op\u00E7\u00F5es");
+		mnNewMenu.setFont(new Font("Arial", Font.PLAIN, 14));
+		mnNewMenu.setForeground(Color.BLACK);
+		mnNewMenu.setBackground(Color.WHITE);
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Informa\u00E7\u00F5es");
+		mntmNewMenuItem.setFont(new Font("Arial", Font.PLAIN, 14));
+		mntmNewMenuItem.setForeground(Color.BLACK);
+		mntmNewMenuItem.setBackground(Color.WHITE);
 		mntmNewMenuItem.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -62,9 +82,15 @@ public class TelaHistorico extends JFrame {
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Manual");
+		mntmNewMenuItem_1.setFont(new Font("Arial", Font.PLAIN, 14));
+		mntmNewMenuItem_1.setForeground(Color.BLACK);
+		mntmNewMenuItem_1.setBackground(Color.WHITE);
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Ajuda");
+		mntmNewMenuItem_2.setFont(new Font("Arial", Font.PLAIN, 14));
+		mntmNewMenuItem_2.setForeground(Color.BLACK);
+		mntmNewMenuItem_2.setBackground(Color.WHITE);
 		mnNewMenu.add(mntmNewMenuItem_2);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -72,9 +98,13 @@ public class TelaHistorico extends JFrame {
 		contentPane.add(scrollPane);
 		
 		JTextPane textPane = new JTextPane();
+		textPane.setFont(new Font("Arial", Font.PLAIN, 14));
+		textPane.setEditable(false);
 		scrollPane.setViewportView(textPane);
 		
 		JButton btnNewButton = new JButton("Sair");
+		btnNewButton.setForeground(Color.BLACK);
+		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
