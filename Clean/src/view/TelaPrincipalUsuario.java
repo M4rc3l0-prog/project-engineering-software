@@ -1,4 +1,4 @@
-package telas;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JScrollBar;
@@ -30,8 +31,9 @@ public class TelaPrincipalUsuario extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws ParseException 
 	 */
-	public TelaPrincipalUsuario() {
+	public TelaPrincipalUsuario() throws ParseException {
 		TelaAlterarPrestador tap = new TelaAlterarPrestador();
 		setTitle("Perfil");
 		setBounds(100, 100, 450, 300);
