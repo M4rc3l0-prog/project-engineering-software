@@ -7,6 +7,7 @@ public class Cliente {
 
 	private String nome;
 	private String email;
+	private Integer telefone;
 	private String endereco;
 	private String sexo;
 	private String complemento;
@@ -15,11 +16,12 @@ public class Cliente {
 	
 	
 	public Cliente(String nome, String email, String endereco, String sexo, String complemento, Date data,
-			String senha) {
+			String senha,Integer telefone) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.endereco = endereco;
+		this.telefone = telefone;
 		this.sexo = sexo;
 		this.complemento = complemento;
 		this.data = data;
@@ -32,6 +34,12 @@ public class Cliente {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	public Integer getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String nome) {
+		this.telefone = telefone;
 	}
 	public String getEmail() {
 		return email;
@@ -96,6 +104,9 @@ public class Cliente {
 		return "Cliente [nome=" + nome + ", email=" + email + ", endereco=" + endereco + ", sexo=" + sexo
 				+ ", complemento=" + complemento + ", data=" + data + ", senha=" + senha + "]";
 	}
+
+
+
 	
 	
 	

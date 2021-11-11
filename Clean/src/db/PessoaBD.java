@@ -1,18 +1,13 @@
 package db;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
-import Dados.Pessoa;
-import BD.Conexao;
+import entities.Cliente;
 
 
 public class PessoaBD
@@ -20,7 +15,7 @@ public class PessoaBD
 
     Connection connection = null;
 
-    public boolean inserirPessoa(Pessoa pessoa) 
+    public boolean inserirPessoa(Cliente cliente) 
     {
         System.out.println("Inserir Pessoa");
        
@@ -34,8 +29,8 @@ public class PessoaBD
             stmt = connection.createStatement();
 
             String sql = "INSERT INTO dados(nome,endereco,telefone,email) "
-            		   + "VALUES ('"+ pessoa.getNome() + "','" + pessoa.getEndereco() + "', '" 
-            		   + pessoa.getTelefone() + "', '" + pessoa.getEmail() + "')";
+            		   + "VALUES ('"+ cliente.getNome() + "','" + cliente.getEndereco() + "', '" 
+            		   + cliente.getTelefone() + "', '" + cliente.getEmail() + "')";
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
            
@@ -61,7 +56,7 @@ public class PessoaBD
     } 
 
     
-    public boolean atualizarPessoa(Pessoa pessoa, String nomeAlterar) 
+    public boolean atualizarPessoa(Cliente cliente, String nomeAlterar) 
     {
         System.out.println("Atualizar Pessoa");
         
@@ -73,9 +68,9 @@ public class PessoaBD
         {
             stmt = connection.createStatement();
 
-            String sql = "UPDATE dados SET nome='"+pessoa.getNome()+"'," +
-                         "endereco='"+pessoa.getEndereco()+"', telefone='"+pessoa.getTelefone()+"'," +
-                         "email='"+pessoa.getEmail()+"' WHERE nome='"+nomeAlterar+"';";
+            String sql = "UPDATE dados SET nome='"+cliente.getNome()+"'," +
+                         "endereco='"+cliente.getEndereco()+"', telefone='"+cliente.getTelefone()+"'," +
+                         "email='"+cliente.getEmail()+"' WHERE nome='"+nomeAlterar+"';";
                     
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
@@ -148,7 +143,7 @@ public class PessoaBD
     	return dados;
     }
     
-    public void relatorioTabelaPessoas(Pessoa pessoa, DefaultTableModel modelo)
+    public void relatorioTabelaPessoas(Cliente cliente, DefaultTableModel modelo)
     {
        connection = Conexao.getInstance().getConnection();
        System.out.println("Conectado!! Preparando a exclusão");
@@ -161,10 +156,10 @@ public class PessoaBD
   		   
     	   while(res.next())
   		   {
-  			   pessoa.setNome(res.getString("nome"));
-  			   pessoa.setEndereco(res.getString("endereco"));
-  			   pessoa.setTelefone(res.getString("telefone"));
-  			   pessoa.setEmail(res.getString("email"));
+    		   cliente.setNome(res.getString("nome"));
+    		   cliente.setEndereco(res.getString("endereco"));
+    		   cliente.setTelefone(res.getString("telefone"));
+    		   cliente.setEmail(res.getString("email"));
   			 
   			   modelo.addRow(new Object[] {res.getString("nome"),res.getString("endereco"),
   					   res.getString("telefone"),res.getString("email")});
@@ -189,7 +184,7 @@ public class PessoaBD
     	
     }
     
-    public boolean excluirPessoa(Pessoa pessoa) 
+    public boolean excluirPessoa(Cliente cliente) 
     {
     	boolean status = true;
     	
@@ -203,7 +198,7 @@ public class PessoaBD
         {
             stmt = connection.createStatement();
             
-            String sql = "DELETE FROM dados WHERE nome='"+pessoa.getNome()+"'";
+            String sql = "DELETE FROM dados WHERE nome='"+cliente.getNome()+"'";
             
             System.out.println("SQL: " + sql);
             
@@ -238,7 +233,7 @@ public class PessoaBD
         return status;
     }
     
-    public boolean procuraPessoa(Pessoa pessoa, String nomeConsulta)
+    public boolean procuraPessoa(Cliente cliente, String nomeConsulta)
     {
     	boolean status = true;
 		        
@@ -255,9 +250,9 @@ public class PessoaBD
 			{
 			   if(res.getString("nome").compareTo(nomeConsulta)==0)
 			   {
-				  pessoa.setEndereco(res.getString("endereco"));
-				  pessoa.setTelefone(res.getString("telefone"));
-				  pessoa.setEmail(res.getString("email"));
+				  cliente.setEndereco(res.getString("endereco"));
+				  cliente.setTelefone(res.getString("telefone"));
+				  cliente.setEmail(res.getString("email"));
 				  status = true;						  
 			   }					   			   
 		    }

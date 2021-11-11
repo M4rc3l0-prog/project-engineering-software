@@ -5,8 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
-import Dados.Login;
+import entities.Login;
 
 public class AcessoBD
 {

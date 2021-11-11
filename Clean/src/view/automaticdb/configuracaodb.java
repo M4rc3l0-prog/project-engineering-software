@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class configuracaodb extends javax.swing.JFrame {
 
-	final private String driver = "com.mysql.jdbc.Driver";
+	final private String driver = "com.mysql.cj.jdbc.Driver";
 	Connection CONEXAO;
 	private boolean VERIFICACAO = false;
 
@@ -68,7 +68,7 @@ public class configuracaodb extends javax.swing.JFrame {
 
 		jLabel1.setText("Host");
 		jPanel1.add(jLabel1);
-		jLabel1.setBounds(50, 70, 22, 14);
+		jLabel1.setBounds(50, 70, 87, 14);
 
 		T_Host.setText("localhost");
 		jPanel1.add(T_Host);
@@ -365,7 +365,7 @@ public class configuracaodb extends javax.swing.JFrame {
 		//        FECHA_CONEXAO();
 		return sucesso;
 	}
-
+//
 	private boolean CRIA_TABELAS() {
 		boolean sucesso = true;
 
