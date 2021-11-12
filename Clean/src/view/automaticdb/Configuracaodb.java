@@ -13,12 +13,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 /**
  *
  * @author Marcelo
  */
-public class configuracaodb extends javax.swing.JFrame {
+public class Configuracaodb extends javax.swing.JFrame {
 
 	final private String driver = "com.mysql.cj.jdbc.Driver";
 	Connection CONEXAO;
@@ -27,7 +30,7 @@ public class configuracaodb extends javax.swing.JFrame {
 	/**
 	 * Creates new form CONFIGURARCAO
 	 */
-	public configuracaodb() {
+	public Configuracaodb() {
 		initComponents();
 
 		if(VERIFICACAO == false) {
@@ -48,12 +51,16 @@ public class configuracaodb extends javax.swing.JFrame {
 
 		jPanel1 = new javax.swing.JPanel();
 		jLabel1 = new javax.swing.JLabel();
+		jLabel1.setForeground(Color.WHITE);
 		T_Host = new javax.swing.JTextField();
 		jLabel2 = new javax.swing.JLabel();
+		jLabel2.setForeground(Color.WHITE);
 		T_Porta = new javax.swing.JTextField();
 		jLabel3 = new javax.swing.JLabel();
+		jLabel3.setForeground(Color.WHITE);
 		T_User = new javax.swing.JTextField();
 		jLabel4 = new javax.swing.JLabel();
+		jLabel4.setForeground(Color.WHITE);
 		T_Senha = new javax.swing.JTextField();
 		jButton1 = new javax.swing.JButton();
 		BotaoSalvar = new javax.swing.JButton();
@@ -72,7 +79,7 @@ public class configuracaodb extends javax.swing.JFrame {
 
 		jLabel2.setText("Porta");
 		jPanel1.add(jLabel2);
-		jLabel2.setBounds(380, 70, 26, 14);
+		jLabel2.setBounds(380, 70, 75, 14);
 
 		T_Porta.setText("3306");
 		jPanel1.add(T_Porta);
@@ -80,7 +87,7 @@ public class configuracaodb extends javax.swing.JFrame {
 
 		jLabel3.setText("User");
 		jPanel1.add(jLabel3);
-		jLabel3.setBounds(60, 160, 22, 14);
+		jLabel3.setBounds(60, 160, 100, 14);
 
 		T_User.setText("root");
 		jPanel1.add(T_User);
@@ -109,7 +116,7 @@ public class configuracaodb extends javax.swing.JFrame {
 			}
 		});
 		jPanel1.add(BotaoSalvar);
-		BotaoSalvar.setBounds(50, 380, 100, 40);
+		BotaoSalvar.setBounds(50, 380, 110, 40);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
@@ -127,6 +134,11 @@ public class configuracaodb extends javax.swing.JFrame {
 						.addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
 						.addContainerGap())
 				);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("/home/marcelogoncalves/√Årea de Trabalho/project-engineering-software/project-engineering-software/Imagens/BANCO-DADOS.png"));
+		lblNewLabel.setBounds(0, -16, 592, 446);
+		jPanel1.add(lblNewLabel);
 
 		setSize(new java.awt.Dimension(616, 496));
 		setLocationRelativeTo(null);
@@ -137,16 +149,16 @@ public class configuracaodb extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(null, "Teste Bem Sucedido");
 			BotaoSalvar.setEnabled(true);
 		} else {
-			JOptionPane.showMessageDialog(null, "Falha Na Conex„o", "Falha", 0);
+			JOptionPane.showMessageDialog(null, "Falha Na ConexÔøΩo", "Falha", 0);
 		}
 	}
 
 	private void BotaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarActionPerformed
 		if (CONEXAO_SERVIDOR(T_Host.getText(), T_Porta.getText(), T_User.getText(), T_Senha.getText())) {
-			if (GRAVA_CONFIGURACAO()) {//SE CONSEGUIR GRAVAR A CONFIGURA«√O PASSA PARA O PROXIMO PASSO
-				if (LE_CONFIGURACAO_GRAVADA()) {//SE CONSEGUIR LER A GRAVA«√O REALIZADA PASSA PARA O PROXIMO PASSO
-					if (CRIA_DATA_BASE_COMPLETO()) { //SE N√O OCORRER ERRO NO QUERES SQL  PASSA PARA O PROXIMO PASSO
-						FECHA_CONEXAO();//PASSOU TODOS OS PASSO AGORA IR¡ FECHAR A TELA E ABRIR OUTRA
+			if (GRAVA_CONFIGURACAO()) {//SE CONSEGUIR GRAVAR A CONFIGURAÔøΩÔøΩO PASSA PARA O PROXIMO PASSO
+				if (LE_CONFIGURACAO_GRAVADA()) {//SE CONSEGUIR LER A GRAVAÔøΩÔøΩO REALIZADA PASSA PARA O PROXIMO PASSO
+					if (CRIA_DATA_BASE_COMPLETO()) { //SE NÔøΩO OCORRER ERRO NO QUERES SQL  PASSA PARA O PROXIMO PASSO
+						FECHA_CONEXAO();//PASSOU TODOS OS PASSO AGORA IRÔøΩ FECHAR A TELA E ABRIR OUTRA
 						new ApplicationMain().setVisible(true); //CHAMO A TELA PRINCIPAL, OU SE QUIZER POSSO CHAMAR A TELA DE LOGIM. FICA A CRITERIO DO PROGRAMADOR
 						dispose();
 					} else {
@@ -178,28 +190,28 @@ public class configuracaodb extends javax.swing.JFrame {
 				}
 			}
 		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(configuracaodb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(Configuracaodb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(configuracaodb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(Configuracaodb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(configuracaodb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(Configuracaodb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(configuracaodb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(Configuracaodb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
 
 
 
 
-		configuracaodb ESTA_TELA = new configuracaodb();//INICIALIZO FAZENDO A PRIMEIRO A VERIFICA«√O ANTES DE ABRIR A TELA
-		if (ESTA_TELA.LE_CONFIGURACAO_GRAVADA()) {//SE CONSEGUIR SE CONETAR PASSO PARA O PR”XIMO PASSO.
+		Configuracaodb ESTA_TELA = new Configuracaodb();//INICIALIZO FAZENDO A PRIMEIRO A VERIFICAÔøΩÔøΩO ANTES DE ABRIR A TELA
+		if (ESTA_TELA.LE_CONFIGURACAO_GRAVADA()) {//SE CONSEGUIR SE CONETAR PASSO PARA O PRÔøΩXIMO PASSO.
 
-			if(ESTA_TELA.CRIA_DATA_BASE_COMPLETO()){ //SE N√O OCORRER ERRO NO QUERES SQL  PASSA PARA O PROXIMO PASSO
-				ESTA_TELA.VERIFICACAO = true;//AQUI JA EST¡ TUDO OK    
+			if(ESTA_TELA.CRIA_DATA_BASE_COMPLETO()){ //SE NÔøΩO OCORRER ERRO NO QUERES SQL  PASSA PARA O PROXIMO PASSO
+				ESTA_TELA.VERIFICACAO = true;//AQUI JA ESTÔøΩ TUDO OK    
 				ESTA_TELA.FECHA_CONEXAO();//FECHARA A CONEXAO_SERVIDOR
 				
 			}           
 		}
-		if(ESTA_TELA.VERIFICACAO == false) {// SE N√O OCORRER BEM AS VERIFICA«’ES INICIALIZO O RUN PRA ABRIR A TELA DE CONFIGURA«√O
+		if(ESTA_TELA.VERIFICACAO == false) {// SE NÔøΩO OCORRER BEM AS VERIFICAÔøΩÔøΩES INICIALIZO O RUN PRA ABRIR A TELA DE CONFIGURAÔøΩÔøΩO
 
 			//        
 
@@ -281,7 +293,7 @@ public class configuracaodb extends javax.swing.JFrame {
 			arq1.close();
 			grava = true;
 		} catch (IOException erro) {
-			JOptionPane.showMessageDialog(null, "VocÍ nao tem permiÁ„o de adminstrador para configurar o"
+			JOptionPane.showMessageDialog(null, "VocÔøΩ nao tem permiÔøΩÔøΩo de adminstrador para configurar o"
 					+ " Sistema.", "ERRO !", 0);
 		}
 		return grava;
@@ -411,7 +423,7 @@ public class configuracaodb extends javax.swing.JFrame {
 				+ "  `sexo_prestador` varchar(20) NOT NULL,\r\n"
 				+ "  `senha_prestador` int(11) NOT NULL,\r\n"
 				+ "  `dtnascimento_prestador` date NOT NULL,\r\n"
-				+ "  `prestador_serviÁo` int(11) NOT NULL\r\n"
+				+ "  `prestador_serviÔøΩo` int(11) NOT NULL\r\n"
 				+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 		try {
 			stm = CONEXAO.prepareStatement(sql);

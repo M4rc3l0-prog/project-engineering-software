@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import view.automaticdb.Configuracaodb;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
@@ -17,6 +20,9 @@ import java.text.ParseException;
 
 import javax.swing.JTextField;
 import java.awt.Font;
+import java.awt.Frame;
+import java.awt.Image;
+
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -26,12 +32,14 @@ import java.awt.event.InputEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.SystemColor;
+import javax.swing.ImageIcon;
 
 public class TelaLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tfUsuario;
 	private JPasswordField pfSenha;
+	private Configuracaodb configBd;
 
 	/**
 	 * Launch the application.
@@ -96,7 +104,7 @@ public class TelaLogin extends JFrame {
 				setVisible(false);
 			}
 		});
-		btEntrar.setBounds(150, 153, 101, 23);
+		btEntrar.setBounds(150, 150, 101, 23);
 		contentPane.add(btEntrar);
 		
 		JButton btCadastrar = new JButton("Cadastrar");
@@ -164,17 +172,23 @@ public class TelaLogin extends JFrame {
 		pfSenha.setBounds(105, 103, 229, 20);
 		contentPane.add(pfSenha);
 		
-		JButton btLimpar = new JButton("Limpar");
-		btLimpar.setForeground(Color.BLACK);
-		btLimpar.setBackground(Color.WHITE);
-		btLimpar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btLimpar.addActionListener(new ActionListener() {
+		JButton btAcessarBD = new JButton("Conectar banco de dados");
+		btAcessarBD.setForeground(Color.BLACK);
+		btAcessarBD.setBackground(Color.WHITE);
+		btAcessarBD.setFont(new Font("Arial", Font.PLAIN, 14));
+		btAcessarBD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pfSenha.setText("");
-				tfUsuario.setText("");
+				configBd.setVisible(true);
+				
 			}
 		});
-		btLimpar.setBounds(150, 222, 101, 23);
-		contentPane.add(btLimpar);
+		btAcessarBD.setBounds(93, 223, 241, 23);
+		contentPane.add(btAcessarBD);
+		
+		JLabel lblNewLabel_1 = new JLabel(" ");
+		Image img = new ImageIcon (this.getClass().getResource("/desktop.png")).getImage();
+		lblNewLabel_1.setIcon(new ImageIcon(img));
+		lblNewLabel_1.setBounds(157, 12, 94, 45);
+		
 	}
 }

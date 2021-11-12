@@ -19,7 +19,7 @@ public class Conexao
         } 
     	catch (ClassNotFoundException e) 
     	{
-            System.out.println("O driver do Mysql não pode ser carregado!");
+            System.out.println("O driver do Mysql nï¿½o pode ser carregado!");
         }
     }
     
@@ -39,8 +39,8 @@ public class Conexao
         {
             if ((con == null) || (con.isClosed())) 
             {
-                con = DriverManager.getConnection("jdbc:mysql://localhost/agenda", "root", "");
-                System.out.println("Conexão estabelecida");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/cleander", "root", "");
+                System.out.println("Conexao estabelecida");
             }
         } 
         catch (SQLException e)
