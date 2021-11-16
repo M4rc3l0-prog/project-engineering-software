@@ -7,16 +7,20 @@ public class Cliente {
 
 	private String nome;
 	private String email;
-	private Integer telefone;
+	private String telefone;
 	private String endereco;
 	private String sexo;
 	private String complemento;
-	private Date data;
+	private String data;
 	private String senha;
+
 	
+	public Cliente() {
+		
+	}
 	
-	public Cliente(String nome, String email, String endereco, String sexo, String complemento, Date data,
-			String senha,Integer telefone) {
+	public Cliente(String nome, String email, String endereco, String sexo, String complemento, String data,
+			String senha,String telefone) {
 		super();
 		this.nome = nome;
 		this.email = email;
@@ -35,7 +39,7 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Integer getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 	public void setTelefone(String nome) {
@@ -65,10 +69,10 @@ public class Cliente {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 	public String getSenha() {
@@ -77,6 +81,7 @@ public class Cliente {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
 	
 	
 	@Override

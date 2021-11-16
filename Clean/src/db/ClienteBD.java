@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import entities.Cliente;
 
 
-public class PessoaBD
+public class ClienteBD
 {
 
     Connection connection = null;
@@ -28,9 +28,9 @@ public class PessoaBD
         {
             stmt = connection.createStatement();
 
-            String sql = "INSERT INTO dados(nome,endereco,telefone,email) "
-            		   + "VALUES ('"+ cliente.getNome() + "','" + cliente.getEndereco() + "', '" 
-            		   + cliente.getTelefone() + "', '" + cliente.getEmail() + "')";
+            String sql = "INSERT INTO cliente(nome_cliente,email_cliente,telefone_cliente,endereco_cliente,complemento_cliente,dtnascimento_cliente,sexo_cliente,senha_cliente) "
+            		   + "VALUES ('"+ cliente.getNome() + "','" + cliente.getEmail()+ "','"+ cliente.getTelefone()+"','"+ cliente.getEndereco() + "', '" 
+            		   + cliente.getComplemento() + "', '" +cliente.getData()+"','"+cliente.getSexo()+"','"+cliente.getSenha() +"')";
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
            

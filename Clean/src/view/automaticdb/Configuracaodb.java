@@ -136,7 +136,7 @@ public class Configuracaodb extends javax.swing.JFrame {
 				);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("/home/marcelogoncalves/Área de Trabalho/project-engineering-software/project-engineering-software/Imagens/BANCO-DADOS.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\marce\\Desktop\\project-engineering-software\\Clean\\src\\img\\BANCO-DADOS.png"));
 		lblNewLabel.setBounds(0, -16, 592, 446);
 		jPanel1.add(lblNewLabel);
 
@@ -149,17 +149,17 @@ public class Configuracaodb extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(null, "Teste Bem Sucedido");
 			BotaoSalvar.setEnabled(true);
 		} else {
-			JOptionPane.showMessageDialog(null, "Falha Na Conex�o", "Falha", 0);
+			JOptionPane.showMessageDialog(null, "Falha Na Conexï¿½o", "Falha", 0);
 		}
 	}
 
 	private void BotaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarActionPerformed
 		if (CONEXAO_SERVIDOR(T_Host.getText(), T_Porta.getText(), T_User.getText(), T_Senha.getText())) {
-			if (GRAVA_CONFIGURACAO()) {//SE CONSEGUIR GRAVAR A CONFIGURA��O PASSA PARA O PROXIMO PASSO
-				if (LE_CONFIGURACAO_GRAVADA()) {//SE CONSEGUIR LER A GRAVA��O REALIZADA PASSA PARA O PROXIMO PASSO
-					if (CRIA_DATA_BASE_COMPLETO()) { //SE N�O OCORRER ERRO NO QUERES SQL  PASSA PARA O PROXIMO PASSO
-						FECHA_CONEXAO();//PASSOU TODOS OS PASSO AGORA IR� FECHAR A TELA E ABRIR OUTRA
-						new ApplicationMain().setVisible(true); //CHAMO A TELA PRINCIPAL, OU SE QUIZER POSSO CHAMAR A TELA DE LOGIM. FICA A CRITERIO DO PROGRAMADOR
+			if (GRAVA_CONFIGURACAO()) {//SE CONSEGUIR GRAVAR A CONFIGURAï¿½ï¿½O PASSA PARA O PROXIMO PASSO
+				if (LE_CONFIGURACAO_GRAVADA()) {//SE CONSEGUIR LER A GRAVAï¿½ï¿½O REALIZADA PASSA PARA O PROXIMO PASSO
+					if (CRIA_DATA_BASE_COMPLETO()) { //SE Nï¿½O OCORRER ERRO NO QUERES SQL  PASSA PARA O PROXIMO PASSO
+						FECHA_CONEXAO();//PASSOU TODOS OS PASSO AGORA IRï¿½ FECHAR A TELA E ABRIR OUTRA
+						 //CHAMO A TELA PRINCIPAL, OU SE QUIZER POSSO CHAMAR A TELA DE LOGIM. FICA A CRITERIO DO PROGRAMADOR
 						dispose();
 					} else {
 						BotaoSalvar.setEnabled(false);
@@ -202,16 +202,16 @@ public class Configuracaodb extends javax.swing.JFrame {
 
 
 
-		Configuracaodb ESTA_TELA = new Configuracaodb();//INICIALIZO FAZENDO A PRIMEIRO A VERIFICA��O ANTES DE ABRIR A TELA
-		if (ESTA_TELA.LE_CONFIGURACAO_GRAVADA()) {//SE CONSEGUIR SE CONETAR PASSO PARA O PR�XIMO PASSO.
+		Configuracaodb ESTA_TELA = new Configuracaodb();//INICIALIZO FAZENDO A PRIMEIRO A VERIFICAï¿½ï¿½O ANTES DE ABRIR A TELA
+		if (ESTA_TELA.LE_CONFIGURACAO_GRAVADA()) {//SE CONSEGUIR SE CONETAR PASSO PARA O PRï¿½XIMO PASSO.
 
-			if(ESTA_TELA.CRIA_DATA_BASE_COMPLETO()){ //SE N�O OCORRER ERRO NO QUERES SQL  PASSA PARA O PROXIMO PASSO
-				ESTA_TELA.VERIFICACAO = true;//AQUI JA EST� TUDO OK    
+			if(ESTA_TELA.CRIA_DATA_BASE_COMPLETO()){ //SE Nï¿½O OCORRER ERRO NO QUERES SQL  PASSA PARA O PROXIMO PASSO
+				ESTA_TELA.VERIFICACAO = true;//AQUI JA ESTï¿½ TUDO OK    
 				ESTA_TELA.FECHA_CONEXAO();//FECHARA A CONEXAO_SERVIDOR
 				
 			}           
 		}
-		if(ESTA_TELA.VERIFICACAO == false) {// SE N�O OCORRER BEM AS VERIFICA��ES INICIALIZO O RUN PRA ABRIR A TELA DE CONFIGURA��O
+		if(ESTA_TELA.VERIFICACAO == false) {// SE Nï¿½O OCORRER BEM AS VERIFICAï¿½ï¿½ES INICIALIZO O RUN PRA ABRIR A TELA DE CONFIGURAï¿½ï¿½O
 
 			//        
 
@@ -293,7 +293,7 @@ public class Configuracaodb extends javax.swing.JFrame {
 			arq1.close();
 			grava = true;
 		} catch (IOException erro) {
-			JOptionPane.showMessageDialog(null, "Voc� nao tem permi��o de adminstrador para configurar o"
+			JOptionPane.showMessageDialog(null, "Vocï¿½ nao tem permiï¿½ï¿½o de adminstrador para configurar o"
 					+ " Sistema.", "ERRO !", 0);
 		}
 		return grava;
@@ -394,12 +394,11 @@ public class Configuracaodb extends javax.swing.JFrame {
 				+ "  `id_cliente` int(11) NOT NULL,\r\n"
 				+ "  `nome_cliente` varchar(100) NOT NULL,\r\n"
 				+ "  `email_cliente` varchar(100) NOT NULL,\r\n"
-				+ "  `senha_` varchar(100) NOT NULL,\r\n"
-				+ "  `telefone_cliente` int(9) NOT NULL,\r\n"
-				+ "  `endereco_cliente` int(100) NOT NULL,\r\n"
+				+ "  `telefone_cliente` varchar(9) NOT NULL,\r\n"
+				+ "  `endereco_cliente` varchar(100) NOT NULL,\r\n"
 				+ "  `sexo_cliente` varchar(20) NOT NULL,\r\n"
-				+ "  `senha_cliente` int(11) NOT NULL,\r\n"
-				+ "  `dtnascimento_cliente` date NOT NULL,\r\n"
+				+ "  `senha_cliente` varchar(30) NOT NULL,\r\n"
+				+ "  `dtnascimento_cliente` varchar(9) NOT NULL,\r\n"
 				+ "  `cliente_servico` int(11) NOT NULL\r\n"
 				+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 		try {
@@ -418,12 +417,12 @@ public class Configuracaodb extends javax.swing.JFrame {
 		String sql = "CREATE TABLE  IF NOT EXISTS prestador (`id_prestador` int(11) NOT NULL,\r\n"
 				+ "  `nome_prestador` varchar(100) NOT NULL,\r\n"
 				+ "  `email_prestador` varchar(100) NOT NULL,\r\n"
-				+ "  `telefone_prestador` int(9) NOT NULL,\r\n"
-				+ "  `endereco_prestador` int(100) NOT NULL,\r\n"
+				+ "  `telefone_prestador` varchar(9) NOT NULL,\r\n"
+				+ "  `endereco_prestador` varchar(100) NOT NULL,\r\n"
 				+ "  `sexo_prestador` varchar(20) NOT NULL,\r\n"
-				+ "  `senha_prestador` int(11) NOT NULL,\r\n"
-				+ "  `dtnascimento_prestador` date NOT NULL,\r\n"
-				+ "  `prestador_servi�o` int(11) NOT NULL\r\n"
+				+ "  `senha_prestador` varchar(30) NOT NULL,\r\n"
+				+ "  `dtnascimento_prestador` varchar(9) NOT NULL,\r\n"
+				+ "  `prestador_servico` int(11) NOT NULL\r\n"
 				+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 		try {
 			stm = CONEXAO.prepareStatement(sql);

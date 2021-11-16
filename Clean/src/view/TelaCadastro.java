@@ -1,29 +1,31 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.text.MaskFormatter;
-import javax.swing.JLabel;
+import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JPasswordField;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.ParseException;
+import java.util.Date;
 
-import javax.swing.JRadioButton;
+import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
-import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
+
+import db.ClienteBD;
+import entities.Cliente;
 
 public class TelaCadastro extends JFrame {
 
@@ -36,14 +38,18 @@ public class TelaCadastro extends JFrame {
 	private JTextField tfEndereco;
 	private JTextField tfComplemento;
 
-	/**
-	 * Launch the application.
-	 */
+	 String nome;
+	 String email;
+	 String telefone;
+	 String endereco;
+	 String sexo;
+	 String complemento;
+	 Date data;
+	 String senha;
+	 String servico;
+	 private JTextField tfSexo;
 	
-	/**
-	 * Create the frame.
-	 * @throws ParseException 
-	 */
+
 	public TelaCadastro() throws ParseException {
 		
 		//Sintaxe 
@@ -126,6 +132,48 @@ public class TelaCadastro extends JFrame {
 		contentPane.add(tfTelefone);
 		
 		JButton btnEnviar = new JButton("Enviar");
+		btnEnviar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cliente cliente = new Cliente();
+				ClienteBD clientebd= new ClienteBD();
+				
+				nome = tfNome.getText();
+				email = tfEmail.getText();
+			    telefone = tfTelefone.getText();
+				endereco = tfEndereco.getText();
+				sexo = tfSexo.getText();
+				complemento = tfComplemento.getText();
+				//data =
+				senha = pfSenha.getText() ;	
+				servico = " ";
+				cliente.setNome(nome);
+				cliente.setEmail(email);
+				cliente.setTelefone(telefone);
+				cliente.setEndereco(endereco);
+				cliente.setComplemento(complemento);
+				cliente.setSenha(senha);
+		
+				
+				if (clientebd.inserirPessoa(cliente) == true) {
+					JOptionPane.showMessageDialog(null, "Pessoa cadastrada com sucesso!!!", "Cadastro",JOptionPane.INFORMATION_MESSAGE);
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro",JOptionPane.ERROR_MESSAGE);
+				}
+					
+				
+				
+				
+			}
+		});
+		
+		JFormattedTextField ftfDataNascimento = new JFormattedTextField(new MaskFormatter("##/##/####"));
+		ftfDataNascimento.setForeground(Color.BLACK);
+		ftfDataNascimento.setBackground(Color.WHITE);
+		ftfDataNascimento.setBounds(170, 175, 143, 20);
+		contentPane.add(ftfDataNascimento);
+		
 		btnEnviar.setForeground(Color.BLACK);
 		btnEnviar.setBackground(Color.WHITE);
 		btnEnviar.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -149,12 +197,6 @@ public class TelaCadastro extends JFrame {
 		pfSenhacon.setBackground(Color.WHITE);
 		pfSenhacon.setBounds(145, 252, 229, 20);
 		contentPane.add(pfSenhacon);
-		
-		JFormattedTextField ftfDataNascimento = new JFormattedTextField(new MaskFormatter("##/##/####"));
-		ftfDataNascimento.setForeground(Color.BLACK);
-		ftfDataNascimento.setBackground(Color.WHITE);
-		ftfDataNascimento.setBounds(170, 175, 143, 20);
-		contentPane.add(ftfDataNascimento);
 		
 		pfSenha = new JPasswordField();
 		pfSenha.setForeground(Color.BLACK);
@@ -253,23 +295,12 @@ public class TelaCadastro extends JFrame {
 		lblDataDeNascimento.setBounds(28, 176, 145, 17);
 		contentPane.add(lblDataDeNascimento);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("M");
-		rdbtnNewRadioButton.setForeground(Color.BLACK);
-		rdbtnNewRadioButton.setBackground(Color.WHITE);
-		rdbtnNewRadioButton.setBounds(65, 200, 46, 23);
-		contentPane.add(rdbtnNewRadioButton);
+	
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("F");
-		rdbtnNewRadioButton_1.setForeground(Color.BLACK);
-		rdbtnNewRadioButton_1.setBackground(Color.WHITE);
-		rdbtnNewRadioButton_1.setBounds(139, 200, 41, 23);
-		contentPane.add(rdbtnNewRadioButton_1);
-		
-		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton("Outros");
-		rdbtnNewRadioButton_1_1.setForeground(Color.BLACK);
-		rdbtnNewRadioButton_1_1.setBackground(Color.WHITE);
-		rdbtnNewRadioButton_1_1.setBounds(200, 200, 74, 23);
-		contentPane.add(rdbtnNewRadioButton_1_1);
+		tfSexo = new JTextField();
+		tfSexo.setBounds(69, 199, 156, 20);
+		contentPane.add(tfSexo);
+		tfSexo.setColumns(10);
 		
 		
 	}
