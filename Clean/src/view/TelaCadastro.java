@@ -44,17 +44,18 @@ public class TelaCadastro extends JFrame {
 	 String endereco;
 	 String sexo;
 	 String complemento;
-	 Date data;
+	 String data;
 	 String senha;
 	 String servico;
 	 private JTextField tfSexo;
+	 private JTextField tfDate;
 	
 
 	public TelaCadastro() throws ParseException {
 		
-		//Sintaxe 
+
 		TelaInfo inf = new TelaInfo();
-		//Sintaxe
+
 		
 		setForeground(Color.BLACK);
 		setBackground(Color.WHITE);
@@ -143,7 +144,7 @@ public class TelaCadastro extends JFrame {
 				endereco = tfEndereco.getText();
 				sexo = tfSexo.getText();
 				complemento = tfComplemento.getText();
-				//data =
+				data = tfDate.getText();
 				senha = pfSenha.getText() ;	
 				servico = " ";
 				cliente.setNome(nome);
@@ -167,12 +168,6 @@ public class TelaCadastro extends JFrame {
 				
 			}
 		});
-		
-		JFormattedTextField ftfDataNascimento = new JFormattedTextField(new MaskFormatter("##/##/####"));
-		ftfDataNascimento.setForeground(Color.BLACK);
-		ftfDataNascimento.setBackground(Color.WHITE);
-		ftfDataNascimento.setBounds(170, 175, 143, 20);
-		contentPane.add(ftfDataNascimento);
 		
 		btnEnviar.setForeground(Color.BLACK);
 		btnEnviar.setBackground(Color.WHITE);
@@ -217,7 +212,7 @@ public class TelaCadastro extends JFrame {
 					tfTelefone.setText("");
 					pfSenha.setText("");
 					pfSenhacon.setText("");
-					ftfDataNascimento.setText("");
+					tfDate.setText("");
 								}
 		});
 		btnLimpar.setBounds(170, 327, 89, 23);
@@ -301,6 +296,12 @@ public class TelaCadastro extends JFrame {
 		tfSexo.setBounds(69, 199, 156, 20);
 		contentPane.add(tfSexo);
 		tfSexo.setColumns(10);
+		
+		tfDate = new JTextField();
+		tfDate.setText("xx/xx/xxxx");
+		tfDate.setBounds(173, 174, 140, 20);
+		contentPane.add(tfDate);
+		tfDate.setColumns(10);
 		
 		
 	}

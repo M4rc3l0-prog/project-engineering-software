@@ -14,6 +14,7 @@ public class Cliente {
 	private String data;
 	private String senha;
 
+
 	
 	public Cliente() {
 		
@@ -30,6 +31,7 @@ public class Cliente {
 		this.complemento = complemento;
 		this.data = data;
 		this.senha = senha;
+	
 	}
 	
 	
@@ -82,7 +84,6 @@ public class Cliente {
 		this.senha = senha;
 	}
 
-	
 	
 	@Override
 	public int hashCode() {

@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import entities.Cliente;
 import entities.Login;
 
 public class AcessoBD
@@ -12,7 +13,7 @@ public class AcessoBD
 
     Connection connection = null;
 
-    public boolean verificaAcesso(Login login)
+    public boolean verificaAcesso(Cliente login)
     {
     	
     	connection = Conexao.getInstance().getConnection();
@@ -24,11 +25,11 @@ public class AcessoBD
         try
         {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM usuarios");
+            ResultSet res = stmt.executeQuery("SELECT * FROM cliente");
             
             while(res.next())
 			{
-			   if(login.getNome().compareTo(res.getString("nome"))==0 && login.getSenha().compareTo(res.getString("senha"))==0)
+			   if(login.getNome().compareTo(res.getString("nome_cliente"))==0 && login.getSenha().compareTo(res.getString("senha_cliente"))==0)
 			   {
 				   status = true;
 				   

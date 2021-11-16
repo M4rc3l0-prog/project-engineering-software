@@ -1,38 +1,32 @@
 package view;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import view.automaticdb.Configuracaodb;
-
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.ParseException;
 
-import javax.swing.JTextField;
-import java.awt.Font;
-import java.awt.Frame;
-import java.awt.Image;
-
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 import javax.swing.KeyStroke;
-import java.awt.event.KeyEvent;
-import java.awt.event.InputEvent;
-import javax.swing.SwingConstants;
-import java.awt.Color;
-import java.awt.SystemColor;
-import javax.swing.ImageIcon;
+import javax.swing.border.EmptyBorder;
+
+import db.AcessoBD;
+import entities.Cliente;
+import entities.Login;
+import view.automaticdb.Configuracaodb;
 
 public class TelaLogin extends JFrame {
 
@@ -101,8 +95,29 @@ public class TelaLogin extends JFrame {
 		btEntrar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pri.setVisible(true);
-				setVisible(false);
+				
+				String nome;
+				String senha;
+				
+				AcessoBD acesso = new AcessoBD();
+				Cliente login = new Cliente();
+				
+				nome =tfUsuario.getText();
+				senha =pfSenha .getText();
+				
+				login.setNome(nome);
+				login.setSenha(senha);
+				
+				if(acesso.verificaAcesso(login) == true)
+				{
+					pri.setVisible(true);
+					dispose();
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Erro nos dados informados", "Erro", JOptionPane.ERROR_MESSAGE);
+				}
+				
 			}
 		});
 		btEntrar.setBounds(150, 150, 101, 23);

@@ -28,9 +28,9 @@ public class ClienteBD
         {
             stmt = connection.createStatement();
 
-            String sql = "INSERT INTO cliente(nome_cliente,email_cliente,telefone_cliente,endereco_cliente,complemento_cliente,dtnascimento_cliente,sexo_cliente,senha_cliente) "
+            String sql = "INSERT INTO cliente(nome_cliente,email_cliente,telefone_cliente,endereco_cliente,complemento_cliente,dtnascimento_cliente,sexo_cliente,senha_cliente, cliente_servico) "
             		   + "VALUES ('"+ cliente.getNome() + "','" + cliente.getEmail()+ "','"+ cliente.getTelefone()+"','"+ cliente.getEndereco() + "', '" 
-            		   + cliente.getComplemento() + "', '" +cliente.getData()+"','"+cliente.getSexo()+"','"+cliente.getSenha() +"')";
+            		   + cliente.getComplemento() + "', '" +cliente.getData()+"','"+cliente.getSexo()+"','"+cliente.getSenha() +"','"+ 23423 +"')";
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
            

@@ -396,6 +396,7 @@ public class Configuracaodb extends javax.swing.JFrame {
 				+ "  `email_cliente` varchar(100) NOT NULL,\r\n"
 				+ "  `telefone_cliente` varchar(9) NOT NULL,\r\n"
 				+ "  `endereco_cliente` varchar(100) NOT NULL,\r\n"
+				+ "  `complemento_cliente` varchar(100) NOT NULL,\r\n"
 				+ "  `sexo_cliente` varchar(20) NOT NULL,\r\n"
 				+ "  `senha_cliente` varchar(30) NOT NULL,\r\n"
 				+ "  `dtnascimento_cliente` varchar(9) NOT NULL,\r\n"
